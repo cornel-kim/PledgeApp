@@ -1,5 +1,6 @@
 package com.modcom.pledgeapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -17,6 +18,10 @@ class MainActivity : AppCompatActivity() {
         FirebaseApp.initializeApp(this)//app initialization
         val rootref:DatabaseReference = FirebaseDatabase.getInstance().reference//reference to the db
         val demoref:DatabaseReference = rootref.child("members")//database table name members
+        TVPledge.setOnClickListener {
+            val i = Intent(this, Pledges::class.java)
+            startActivity(i)
+        }
 
         btnSUBMIT.setOnClickListener {
             //set up firebase
